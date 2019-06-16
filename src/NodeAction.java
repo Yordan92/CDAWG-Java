@@ -16,6 +16,10 @@ public class NodeAction {
         return node;
     }
 
+    public Node getNode(long id) {
+        return nodes.get(id);
+    }
+
 //    public void NodeAction() {
 //        Node root = new Node(Node.ROOT, Node.NO_SUF);
 //        Node source = new Node(Node.SOURCE, Node.ROOT);
