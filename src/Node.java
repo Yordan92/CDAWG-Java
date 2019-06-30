@@ -6,7 +6,7 @@ public class Node {
 
 	public static final long ROOT = -1;
 	public static final long SOURCE = 0;
-	public static final long NO_SUF = -1;
+	public static final long NO_SUF = -2;
 
 	public Node(long id, long suf, long length) {
 		this.suf = suf;

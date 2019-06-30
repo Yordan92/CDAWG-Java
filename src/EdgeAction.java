@@ -7,11 +7,12 @@ public class EdgeAction {
 
     public Map<String, Edge> edges = new HashMap<>();
     public Map<Integer, List<Edge>>nodeEdgesMap = new HashMap<>();
+    public final Edge ROOT_EDGE = new Edge(Node.ROOT, Node.SOURCE, -1, -1, '-');
 
-//    public EdgeAction() {
-//        newEdge(Node.ROOT, -1, -1, Node.SOURCE, '-');
-//
-//    }
+    public EdgeAction() {
+        storeEdge(ROOT_EDGE);
+    }
+
     public void newEdge(Node node, long k, long p, Node endNode, char startChar) {
         Edge newEdge = new Edge(node.getId(), endNode.getId(), k, p, startChar);
         edges.put(generateKey(newEdge), newEdge);
@@ -30,6 +31,9 @@ public class EdgeAction {
     }
 
     public Edge getEdge(Node node, char c) {
+        if (Node.ROOT == node.getId()) {
+            return ROOT_EDGE;
+        }
         return edges.get(generateKey(node, c));
     }
 
@@ -38,6 +42,9 @@ public class EdgeAction {
     }
 
     public boolean containsEdge(Node node, char c) {
+        if (node.getId() == Node.ROOT) {
+            return true;
+        }
         return edges.containsKey(generateKey(node, c));
     }
 

@@ -14,10 +14,10 @@ public class CDAWG {
         nodeAction = new NodeAction();
         root = new Node(Node.ROOT, Node.NO_SUF, -1);
         source = new Node(Node.SOURCE, Node.ROOT, 0);
-        Edge edge = new Edge(Node.ROOT, -1, -1, Node.SOURCE, '-');
+//        Edge edge = new Edge(Node.ROOT, -1, -1, Node.SOURCE, '-');
         nodeAction.storeNode(root);
         nodeAction.storeNode(source);
-        edgeAction.storeEdge(edge);
+//        edgeAction.storeEdge(edge);
     }
 
     public void create(final String W) {
