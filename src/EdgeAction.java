@@ -26,7 +26,7 @@ public class EdgeAction {
     public void newEdge(long node, long k, long p, long endNode, char startChar) {
         Edge newEdge = new Edge(node, endNode, k, p, startChar);
         edges.put(generateKey(newEdge), newEdge);
-        nodeEdgesMap.putIfAbsent((int) node, new ArrayList<>()).add(newEdge);
+        nodeEdgesMap.computeIfAbsent((int) node, ArrayList::new).add(newEdge);
 
     }
 

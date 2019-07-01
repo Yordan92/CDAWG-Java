@@ -26,18 +26,19 @@ public class CDAWG {
         Node s = source;
         sink = nodeAction.createNode(Node.NO_SUF, 0);
         for (int i = 0; i < W.length(); i++) {
-           Pair<Node, Integer> active = update(s, k, i);
-           s = active.getKey();
-           k = active.getValue();
+            Edge.E++;
+            Pair<Node, Integer> active = update(s, k, i);
+            s = active.getKey();
+            k = active.getValue();
         }
     }
     public Pair<Node, Integer> update(Node s, int k, int p) {
         char c = W.charAt(p);
         Node oldr = null;
         Node s1 = null;
-
+        Node r = null;
         while(!checkEndPoint(s, k,p - 1, c)) {
-            Node r = null;
+
             if(k <= p - 1) { // Implicit case. This is when you are in the middle of the edge
                 Node sExt = extension(s, k, p - 1);
                 if (sExt.equals(s1)) {
@@ -62,6 +63,7 @@ public class CDAWG {
             } else { // Explicit case This is when you are on some node
                 r = s;
             }
+            edgeAction.newEdge(r.getId(), k, Edge.SINK_NODE, sink.getId(), c);
             if (oldr != null) {
                 oldr.setSuf(r.getId());
             }

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 public class MainClass {
 
+
 	public static void main(String[] args) {
 		CDAWG cdawg = new CDAWG();
 		cdawg.create("cocoa");

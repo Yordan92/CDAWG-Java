@@ -7,6 +7,7 @@ public class Edge {
 	long p;
 	public static long E;
 
+	public static final long SINK_NODE = -2;
 	public Edge(long startNode, long endNode, long k, long p, char startChar) {
 		this.startNode = startNode;
 		this.endNode = endNode;
@@ -50,7 +51,7 @@ public class Edge {
 	}
 
 	public long getP() {
-		return p;
+		return this.p == SINK_NODE ? E : p;
 	}
 
 	public void setP(long p) {
