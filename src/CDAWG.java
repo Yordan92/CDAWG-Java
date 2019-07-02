@@ -102,8 +102,8 @@ public class CDAWG {
 
     public void redirectEdge(Node s, int k, int p, Node r) {
         Edge edge = edgeAction.getEdge(s, W.charAt(k));
-        int p1 = (int) edge.getP();
-        edge.setP(p1 + p - k);
+        int k1 = (int) edge.getK();
+        edge.setP(k1 + p - k);
         edge.setEndNode(r.getId());
     }
 

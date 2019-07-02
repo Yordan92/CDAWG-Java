@@ -38,7 +38,7 @@ public class EdgeAction {
     }
 
     public List<Edge> getEdgesForNode(Node node) {
-        return nodeEdgesMap.get(node.getId());
+        return nodeEdgesMap.get((int) node.getId());
     }
 
     public boolean containsEdge(Node node, char c) {
