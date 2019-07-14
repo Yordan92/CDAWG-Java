@@ -148,7 +148,7 @@ public class CDAWG {
             return canonized;
         }
         //Explicit case Solid case
-        if (s1.getLength() == s.getLength() + (p - k  + 1)) {
+        if (s1.getLength() == s.getLength() + (p - k + 1)) {
             return canonized;
         }
 
@@ -160,12 +160,14 @@ public class CDAWG {
         cloneNode(s1, r1);
         while(true) {
            Edge edgeFromSToS1 = edgeAction.getEdge(s, W.charAt(k));
-           edgeAction.newEdge(edgeFromSToS1.getStartNode(), edgeFromSToS1.getK(), edgeFromSToS1.getP(), r1.getId(), edgeFromSToS1.getStartChar());
+           edgeFromSToS1.setEndNode(r1.getId());
+//           edgeAction.newEdge(edgeFromSToS1.getStartNode(), edgeFromSToS1.getK(), edgeFromSToS1.getP(), r1.getId(), edgeFromSToS1.getStartChar());
             Node sSuf = nodeAction.getNode(s.getSuf());
             Pair<Node, Integer> canonized1 = canonize(sSuf, k, p - 1);
             s = canonized1.getKey();
             k = canonized1.getValue();
-            if (s.equals(s1) && k == k1) {
+            Pair<Node, Integer> canonized2 = canonize(s, k, p);
+            if (!canonized2.getKey().equals(s1) || canonized2.getValue() != k1) {
                 break;
             }
         }
