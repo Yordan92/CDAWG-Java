@@ -1,13 +1,12 @@
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 
 public class MainClass {
 
 
 	public static void main(String[] args) {
 		CDAWG cdawg = new CDAWG();
-		cdawg.create("cocoao");
+		String textForIngestion = "cocoafdfdg";
+		cdawg.create(textForIngestion);
+
+		System.out.println(cdawg.find(textForIngestion.substring(0, textForIngestion.length() )));
 	}
 }

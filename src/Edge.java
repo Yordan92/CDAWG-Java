@@ -5,7 +5,7 @@ public class Edge {
 	char startChar;
 	long k;
 	long p;
-	public static long E;
+	public static long E = -1;
 
 	public static final long SINK_NODE = -2;
 	public Edge(long startNode, long endNode, long k, long p, char startChar) {

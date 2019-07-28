@@ -172,7 +172,6 @@ public class CDAWG {
             }
         }
         return new Pair<>(r1, p + 1);
-
     }
 
     public void cloneNode(Node from, Node to) {
@@ -182,6 +181,28 @@ public class CDAWG {
         }
     }
 
+    public boolean find(String w) {
+        Node currentNode = this.source;
+        Edge currentEdge = null;
+        int i = 0;
+        while(i < w.length()) {
+            currentEdge = this.edgeAction.getEdge(currentNode, w.charAt(i));
+            if (currentEdge == null) {
+                return false;
+            }
+            int k1 = (int) currentEdge.getK();
+            while (k1 <= currentEdge.getP()) {
+                if (w.charAt(i) != this.W.charAt(k1)) {
+                    return false;
+                }
+                i++;
+                k1++;
+            }
+            currentNode = nodeAction.getNode(currentEdge.getEndNode());
+
+        }
+        return true;
+    }
 
 
 
