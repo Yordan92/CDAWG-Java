@@ -191,7 +191,7 @@ public class CDAWG {
                 return false;
             }
             int k1 = (int) currentEdge.getK();
-            while (k1 <= currentEdge.getP()) {
+            while (k1 <= currentEdge.getP() && i < w.length()) {
                 if (w.charAt(i) != this.W.charAt(k1)) {
                     return false;
                 }
