@@ -63,7 +63,7 @@ public class CDAWG {
             } else { // Explicit case This is when you are on some node
                 r = s;
             }
-            edgeAction.newEdge(r.getId(), k, Edge.SINK_NODE, sink.getId(), c);
+            edgeAction.newEdge(r.getId(), p, Edge.SINK_NODE, sink.getId(), c);
             if (oldr != null) {
                 oldr.setSuf(r.getId());
             }
